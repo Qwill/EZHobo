@@ -6,13 +6,7 @@ boolean hamster;
 boolean coat;
 int turns;
 string rlogs = visit_url("clan_raidlogs.php");
-int pipe_requirement = 40;
-string physical_attack = "attack";
-if (have_skill($skill[Lunging Thrust-Smack])) {
-  physical_attack = "Lunging Thrust-Smack";
-} else if (have_skill($skill[Thrust-Smack])) {
-  physical_attack = "Thrust-Smack";
-}
+int pipe_requirement = 40; 
 
 void newline() { 
 	print("");
@@ -676,14 +670,14 @@ void main(string args){
     abort("Failed trekking through the sewers.");
   }
 
-  if (get_property("ezhobo_square") && get_property("ezhobo_square") > 0) {
-    if (town_square(turns, get_property("ezhobo_square"))) {
-      print(`Map image {to_string(get_property("ezhobo_square"))} successfully reached.`);
-      set_property("ezhobo_square", 0);
+  if (property_exists("ezhobo_square") && to_int(get_property("ezhobo_square")) > 0) {
+    if (town_square(turns, to_int(get_property("ezhobo_square")))) {
+      print(`Map image {get_property("ezhobo_square")} successfully reached.`);
+      remove_property("ezhobo_square");
       abort();
     } else {
       print(`Failed to reach map image {get_property("ezhobo_square")}.`);
-      set_property("ezhobo_square", 0);
+      remove_property("ezhobo_square");
       abort();
     }
   }
