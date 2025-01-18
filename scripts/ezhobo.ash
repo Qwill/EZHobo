@@ -362,15 +362,17 @@ boolean town_square(int turnss, int mapimage){
 
   while(!contains_text(town_map, `clan_hobopolis.php?place={mapimage}`)){
 
-    foreach elem in $elements[Hot, Cold, Stench, Spooky, Sleaze, None]{
+    foreach elem in $elements[hot, cold, stench, spooky, sleaze, none]{
 
       if (hobo_parts(elem) < 1){
         town_square_combat(`{elem} 1 {mapimage}`);
       }
     }
 
-    print("Launching a schobo!", "orange");
-    visit_url("clan_hobopolis.php?place=3&action=talkrichard&whichtalk=3&preaction=simulacrum&qty=1");
+    if (hobo_parts($element[hot]) > 0 && hobo_parts($element[cold]) > 0 && hobo_parts($element[stench]) > 0 && hobo_parts($element[spooky]) > 0 && hobo_parts($element[sleaze]) > 0 && hobo_parts($element[none]) > 0) {
+      print("Launching a schobo!", "orange");
+      visit_url("clan_hobopolis.php?place=3&action=talkrichard&whichtalk=3&preaction=simulacrum&qty=1");
+    }
   }
 
   return contains_text(town_map , `clan_hobopolis.php?place={mapimage}`); 
