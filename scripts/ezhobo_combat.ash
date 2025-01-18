@@ -55,8 +55,13 @@ string hobo_combat(int round, monster mon_encountered, string pagetext) {
     }
 
     if(round == 1){
-      print("Launching a mortar!", "green");
-      return "skill stuffed mortar shell";
+      if (have_effect($effect[Spirit of Bacon Grease]) > 0 || have_effect($effect[Spirit of Wormwood]) > 0 || have_effect($effect[Spirit of Cayenne]) > 0 || have_effect($effect[Spirit of Peppermint]) > 0 || have_effect($effect[Spirit of Garlic]) > 0) {
+        print("Launching a mortar!", "green");
+        return "skill stuffed mortar shell";
+      } else {
+        print("Performing a physical attack!", "green");
+        return physical_attack;
+      }
     }
 
     if(my_familiar() == $familiar[Grey Goose] && familiar_weight(my_familiar()) > 20 && familiar_weight(my_familiar()) > 5){
