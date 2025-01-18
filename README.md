@@ -14,7 +14,6 @@ This is a fork of Thingamore's script, attempting to fix a weird behavior in Sha
 - [Hobo Code Binder](https://kol.coldfront.net/thekolwiki/index.php/Hobo_code_binder)
 - [Stuffed Mortar Shell](https://kol.coldfront.net/thekolwiki/index.php/Stuffed_Mortar_Shell)
 - [Flavor of Magic](https://kol.coldfront.net/thekolwiki/index.php/Flavour_of_Magic)
-- [Lunging-thrust Smack](https://kol.coldfront.net/thekolwiki/index.php/Lunging_Thrust-Smack)
 
 **Hamster:**
 - [CLEESH](https://kol.coldfront.net/thekolwiki/index.php/CLEESH) and/or a supply of [freeruns](https://kol.coldfront.net/thekolwiki/index.php/Run_Away)

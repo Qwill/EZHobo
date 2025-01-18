@@ -7,6 +7,12 @@ boolean coat;
 int turns;
 string rlogs = visit_url("clan_raidlogs.php");
 int pipe_requirement = 40;
+string physical_attack = "attack";
+if (have_skill($skill[Lunging Thrust-Smack])) {
+  physical_attack = "Lunging Thrust-Smack";
+} else if (have_skill($skill[Thrust-Smack])) {
+  physical_attack = "Thrust-Smack";
+}
 
 void newline() { 
 	print("");
@@ -272,7 +278,7 @@ void town_square_combat(string settings) {
 
     case(elemt == $element[None]):
       use_skill($skill[Spirit of Nothing]);
-      set_auto_attack("Lunging Thrust-Smack");
+      set_auto_attack(physical_attack);
       break;
 
     case(elemt == $element[Hot]):

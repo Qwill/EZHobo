@@ -1,5 +1,12 @@
 script "ezhobo_combat.ash";
 
+string physical_attack = "attack with weapon";
+if (have_skill($skill[Lunging Thrust-Smack])) {
+  physical_attack = "skill Lunging Thrust-Smack";
+} else if (have_skill($skill[Thrust-Smack])) {
+  physical_attack = "skill Thrust-Smack";
+}
+
 string submit_combat(string filter) {
 	string combat_submission_url = visit_url(`fight.php?action=macro&macrotext={filter}`, true, false);
 	return combat_submission_url;
@@ -76,10 +83,10 @@ string hobo_combat(int round, monster mon_encountered, string pagetext) {
     return "use seal tooth";
 
     case($monster[Hot Hobo]):
-    return "skill Lunging Thrust-Smack";
+    return physical_attack;
 
     case($monster[Cold Hobo]):
-    return "skill Lunging Thrust-Smack";
+    return physical_attack;
 
     case($monster[Stench Hobo]):
 
@@ -97,7 +104,7 @@ string hobo_combat(int round, monster mon_encountered, string pagetext) {
 
     default:
       print(`We've hit a {mon_encountered} as a result of a wanderer! Defaulting to killing them!`, "orange");
-      return "skill Lunging Thrust-Smack; repeat 10 !times";
+      return `{physical_attack}; repeat 10 !times`;
   }
 
   print("Combat handling failed!", "orange");
