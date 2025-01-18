@@ -678,11 +678,13 @@ void main(string args){
 
   if (get_property("ezhobo_square") && get_property("ezhobo_square") > 0) {
     if (town_square(turns, get_property("ezhobo_square"))) {
+      print(`Map image {to_string(get_property("ezhobo_square"))} successfully reached.`);
       set_property("ezhobo_square", 0);
-      abort(`Map image {to_string(get_property("ezhobo_square"))} successfully reached.`);
+      abort();
     } else {
+      print(`Failed to reach map image {get_property("ezhobo_square")}.`);
       set_property("ezhobo_square", 0);
-      abort(`Failed to reach map image {get_property("ezhobo_square")}.`);
+      abort();
     }
   }
 
