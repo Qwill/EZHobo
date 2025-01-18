@@ -676,6 +676,16 @@ void main(string args){
     abort("Failed trekking through the sewers.");
   }
 
+  if (get_property("ezhobo_square") && get_property("ezhobo_square") > 0) {
+    if (town_square(turns, get_property("ezhobo_square"))) {
+      set_property("ezhobo_square", 0);
+      abort(`Map image {to_string(get_property("ezhobo_square"))} successfully reached.`);
+    } else {
+      set_property("ezhobo_square", 0);
+      abort(`Failed to reach map image {get_property("ezhobo_square")}.`);
+    }
+  }
+
   if(town_square(turns, 5)){
     print("There is 500 or greater kills in the square.", "orange");
   } else {
